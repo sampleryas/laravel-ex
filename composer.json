@@ -29,6 +29,9 @@
         ]
     },
     "scripts": {
+	"pre-install-cmd": [
+	    "pecl install trader"
+	],
         "post-root-package-install": [
             "php -r \"copy('.env.example', '.env');\""
         ],
