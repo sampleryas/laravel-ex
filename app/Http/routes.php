@@ -15,6 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('hello', function(){
+Route::get('/hello', function(){
     return "Hello World :)";
+});
+
+use Illuminate\Support\Facades\Storage;
+Route::get('/data', function(){
+	try{
+		$contents = Storage::get('cmd.log');
+	} catch(Exception $e){
+		$contents = $e->getMessage();	
+	}
+    return $contents;
 });
